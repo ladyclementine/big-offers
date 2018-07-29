@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   <head>
+      <title>Big Offers</title>
+      <%= csrf_meta_tags %>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="language" content="pt-BR" />
+      <link rel="icon" type="image/png" sizes="16x16" href="#">
+      <meta name="description" content="Plataforma de ofertas" />
+      <meta name="keywords" content="advogado cliente justica">
+      <%= stylesheet_link_tag  'dashboard', media: 'all', 'data-turbolinks-track' => true %>
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+   </head>
+   <body>
+    <%= yield %>
+    <%= javascript_include_tag 'dashboard' %>
+   </body>
+</html>

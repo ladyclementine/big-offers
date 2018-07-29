@@ -1,0 +1,41 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row justify-center margin-top">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Login</h4>
+            <!-- <p class="card-category">Complete your profile</p> -->
+          </div>
+          <div class="card-body">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.label :email, class:"bmd-label-floating" %>
+                      <%= f.email_field :email, autofocus: true, class:"form-control" %>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.label :password, class:"bmd-label-floating" do %>
+                      Senha
+                      <% end %>
+                      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                    </div>
+                  </div>
+              </div>
+              <div class="row justify-center">
+                <%= f.submit "Entrar", class:"btn btn-primary pull-right" %>
+              </div>
+              <div class="clearfix"></div>
+            <% end %>
+            <!-- <%= render "admins/shared/links" %> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
