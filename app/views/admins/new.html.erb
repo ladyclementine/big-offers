@@ -1,0 +1,59 @@
+<div class="">
+        <div class="container-fluid">
+          <div class="row justify-center margin-top">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Cadastro de assistentes</h4>
+              </div>
+              <div class="card-body">
+                  <%= form_for @admins, url: {action: "create"} do |f| %>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <%= f.label :name, class:"bmd-label-floating" do %>
+                          Nome
+                          <% end %>
+                          <%= f.text_field :name, autofocus: true, class:"form-control" %>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <%= f.label :email, class:"bmd-label-floating" %>
+                          <%= f.email_field :email, autofocus: true, class:"form-control" %>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <%= f.label :password, class:"bmd-label-floating" do %>
+                          Senha
+                          <% end %>
+                          <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
+                          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group justify-between">
+                            <%= f.select(:permission_level, ["Permissão", "Criar", "Criar-Editar"], {required: true, selected: 'Permissão', disabled: 'Permissão'},  {:class => 'form-control'}) %>
+                            <i class="material-icons select-icon">expand_more</i>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row justify-center">
+                    <%= f.submit "Criar Assistente", class:"btn btn-primary pull-right" %>
+                  </div>
+                  <div class="clearfix"></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    

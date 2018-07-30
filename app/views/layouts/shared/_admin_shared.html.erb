@@ -13,23 +13,19 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="./dashboard.html">
+            <%= link_to(root_path, class:"nav-link") do %>
               <i class="material-icons">dashboard</i>
               <p>Ofertas</p>
-            </a>
+            <% end %>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              <p>Assistentes</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">lock_open</i>
-              <p>Permissões</p>
-            </a>
-          </li>
+          <% if current_admin.is_default == true %>
+            <li class="nav-item ">
+              <%= link_to(admins_path, class:"nav-link") do %>
+                <i class="material-icons">person</i>
+                <p>Assistentes</p>
+              <% end %>
+            </li>
+          <% end %>
           <% if admin_signed_in? %>
             <li class="nav-item ">
               <%= link_to(destroy_admin_session_path, :method => :delete, class:"nav-link")  do %> 
@@ -38,46 +34,13 @@
               <% end %>
             </li>
           <% end %>          
-          <!-- <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li> -->
-          <!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
         </ul>
       </div>
     </div>
     <div class="main-panel">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <!-- <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
-          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -130,7 +93,7 @@
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> -->
       <!-- End Navbar -->
       <%= yield %>
     </div>

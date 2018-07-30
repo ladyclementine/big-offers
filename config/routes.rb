@@ -1,23 +1,21 @@
 Rails.application.routes.draw do
 
-  devise_scope :admin do
-    authenticated  do
-      root 'dashboard#index',  as: :authenticated_admin_root
-    end
-  end
   devise_for :admins , controllers: {
-    sessions: 'admins/sessions',
-    registrations: 'admins/registrations'
+    sessions: 'admins/sessions'
   },
   path: "/",
   path_names: { sign_in: 'admin/login',
                 sign_out: 'admin/logout',
-                registration: 'admin',
-                sign_up: 'cadastro' ,
               }
-  devise_scope :admins do
-    get 'admin' => 'dashboard#index'
+  devise_scope :admin do
     authenticated :admin do
+      resources :admins, only: [:destroy, :update, :edit]
+      get '/admin/cadastro', to: 'admins#new'
+      post '/admin/cadastro' => 'admins#create', as: :new_admin
+
+      root 'dashboard#index',  as: :authenticated_admin_root
+      get 'admin' => 'dashboard#index'
+      get 'admins' => 'admins#index'
     end
   end
   root to: 'landing_page#index'

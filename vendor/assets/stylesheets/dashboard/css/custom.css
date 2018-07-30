@@ -2,6 +2,34 @@
     display: flex;
     justify-content: center;
 }
+.justify-end{
+    display: flex;
+    justify-content: flex-end;
+}
 .margin-top{
     margin-top: 10%;
 }
+.margin-top-5{
+    margin-top: 5%;
+}
+.select-input{
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 0 !important;
+}
+.select-icon{
+    position: absolute;
+    right: 15px;
+    color: #d2d2d2;
+}
+.justify-between{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.padding{
+    padding: 20px 20px 0;
+}
+    

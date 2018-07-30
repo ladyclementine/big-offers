@@ -1,0 +1,82 @@
+<div class="margin-top-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-primary">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper justify-between">
+                                <span class="nav-tabs-title">Gerenciamento de Assistentes</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <%= link_to(new_admin_path, class:"nav-link active") do %>
+                                        <i class="material-icons">add</i> Adicionar Novo
+                                        <div class="ripple-container"></div>
+                                        <% end %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding justify-end">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" placeholder="Pesquise...">
+                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th></th>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Permissões</th>
+                            <th><%= @teste %></th>
+                        </thead>
+                        <tbody>
+                            <% @admins.each do |admin| %>
+                                <tr>
+                                <% if admin.is_default == false %>
+                                    <td class="checkbox"><%= check_box_tag "delete", admin.id,  class: "form-control"%></td>
+                                    <td><%= admin.id %></td>
+                                    <td><%= admin.name %></td>
+                                    <td><%= admin.email %></td>
+                                    <td>
+                                            <%= admin.permission_level %>
+                                        <!-- <div class="">
+                                            <div class="select-input col-md-6">
+                                                <select class="form-control">
+                                                    <option value="volvo">Criar</option>
+                                                    <option value="saab">Criar e editar</option>
+                                                </select>
+                                                <i class="material-icons select-icon">expand_more</i>
+                                            </div>
+                                        </div> -->
+                                    </td>
+                                    <td class="td-actions text-right">
+                                        <%= link_to edit_admin_path(admin), rel:"tooltip", title:"Editar", class:"btn btn-primary btn-link btn-sm" do %>
+                                            <i class="material-icons">edit</i>
+                                        <% end %>
+                                    </td>
+                                    <td>
+                                        <%= button_to admin, method: :delete , rel:"tooltip", title:"Remover", class:"btn btn-danger btn-link btn-sm", data: { confirm: "Deseja realmente apagar o administrador #{admin.name}" } do %>
+                                        <i class="material-icons">close</i>
+                                        <% end %>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            <% end %>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
