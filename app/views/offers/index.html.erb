@@ -1,0 +1,108 @@
+<div class="margin-top-5">
+    <div class="container-fluid">
+        <div class="row justify-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                    <h4 class="card-title">Ofertas(<%= @offers.count%>)</h4>
+                    </div>
+                    <div class="card-body">
+                        <%= form_for @offer, remote: true, multipart: :true  do |f| %>
+                        <% if @offer.errors.any? %>
+                        <script>
+                            $(document).ready(function() {
+                            noty({text: ' <%= pluralize(@offer.errors.count, "error") %> encontrados: </br><ul><% @offer.errors.each do |attr,message| %><li><%= message %></li><% end %></ul>', layout: 'bottom', type: 'warning', timeout: 4000});
+                            });
+                        </script>
+                        <% end %>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :title, class:"bmd-label-floating" do %>
+                                        Título
+                                    <% end %>
+                                    <%= f.text_field :title, autofocus: true, class:"form-control", id:"title" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :price, class:"bmd-label-floating" do %>
+                                        Valor da Oferta
+                                    <% end %>
+                                    <%= f.text_field :price, autofocus: true, class:"form-control", id: "price" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <%= f.label :description, class:"bmd-label-floating" do %>
+                                    Descrição
+                                <% end %>
+                                <%= f.text_field :description, autofocus: true, class:"form-control", id: "description" %>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <%= f.label :avatar, class:"bmd-label-floating" do %>
+                                        Imagem da oferta
+                                    <% end %>
+                                    <%= f.file_field :avatar, class:"form-control"%>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="row justify-center">
+                        <%= f.submit "Criar Oferta", class:"btn btn-primary pull-right" %>
+                        </div>
+                        <div class="clearfix"></div>
+                    <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-start">
+        <%= link_to(archived_list_path, class:"nav-link active") do %>
+            <i class="material-icons">list</i> Ver ofertas arquivada
+            <div class="ripple-container"></div>
+        <% end %>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <!-- <div class="row padding justify-end">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" placeholder="Pesquise...">
+                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Preço</th>
+                            <th>Criado por</th>
+                            <th>Criado em</th>
+                        </thead>
+                        <tbody id="offers">
+                            <%= render @offers%>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

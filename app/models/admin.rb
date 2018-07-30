@@ -10,5 +10,8 @@ class Admin < ApplicationRecord
     Admin.all.each do |admin|
       admin.is_default == true ? true : false
     end
-  end     
+  end   
+  def has_permission?
+    return self.permission_level == "Criar-Editar" || self.permission_level == "Administrador" ? true : false
+  end  
 end

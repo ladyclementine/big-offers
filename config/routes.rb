@@ -9,12 +9,30 @@ Rails.application.routes.draw do
               }
   devise_scope :admin do
     authenticated :admin do
-      resources :admins, only: [:destroy, :update, :edit]
+      resources :offers, only: [:update]
+      #ver lista de ofertas
+      get '/ofertas' => 'offers#index', as: :offers
+      
+      #criar oferta
+      post '/ofertas' => 'offers#create', as: :new_offer
+      
+      #editar oferta
+      get '/oferta/:id/editar' => 'offers#edit', :as => 'edit_offer'
+      
+      #arquivar oferta
+      put '/oferta/:id/arquivar' => 'offers#archive', :as => 'archive_offer'
+      
+      #verlista de ofertas arquivadas
+      get '/ofertas/arquivadas' => 'offers#archived_list', as: :archived_list
+
+      resources :admins, only: [:destroy, :update, :edit, :delete]
+      
       get '/admin/cadastro', to: 'admins#new'
       post '/admin/cadastro' => 'admins#create', as: :new_admin
+      
 
-      root 'dashboard#index',  as: :authenticated_admin_root
-      get 'admin' => 'dashboard#index'
+      root  'offers#index',  as: :authenticated_admin_root
+
       get 'admins' => 'admins#index'
     end
   end

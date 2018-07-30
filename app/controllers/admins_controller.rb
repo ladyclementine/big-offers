@@ -2,7 +2,6 @@ class AdminsController <  ApplicationController
     before_action :require_default_admin
     before_action :authenticate_admin!
     before_action :get_admin, only: [:destroy, :edit, :update]
-    before_action
 
     layout 'dashboard'
 

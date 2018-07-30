@@ -1,0 +1,21 @@
+<% if offer.archived == false %>
+    <tr>
+        <td><%= offer.id %></td>
+        <td><%= offer.title %></td>
+        <td><%= offer.price %></td>
+        <td><%= offer.created_by %></td>
+        <td><%= offer.created_at.strftime("%d/%m/%Y  %H:%M:%S")  %></td>
+        <% if current_admin.has_permission? %>
+            <td class="td-actions text-right">
+                <%= link_to edit_offer_path(offer), rel:"tooltip", title:"Editar", class:"btn btn-primary btn-link btn-sm" do %>
+                    <i class="material-icons">edit</i>
+                <% end %>
+            </td>
+        <% end %>
+        <td>
+            <%= button_to archive_offer_path(offer), method: :put , rel:"tooltip", title:"Arquivar", class:"btn btn-green btn-link btn-sm" do %>
+            <i class="material-icons">archive</i>
+            <% end %>
+        </td>
+    </tr>
+<% end %>

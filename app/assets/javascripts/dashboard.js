@@ -1,4 +1,7 @@
-//= require dashboard/js/core/jquery.min.js
+//= require jquery
+//= require jquery_ujs
+
+//= require dashboard/js/toast/toastr.min.js
 
 //= require dashboard/js/core/popper.min.js
 //= require dashboard/js/core/bootstrap-material-design.min.js

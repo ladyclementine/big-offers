@@ -1,0 +1,50 @@
+<div class="container-fluid">
+        <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-tabs card-header-primary">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper justify-between">
+                                        <span class="nav-tabs-title">Ofertas arquivadas(<%= @offers.count%>)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- <div class="row padding justify-end">
+                            <div class="col-lg-4 col-md-4">
+                                <div class="input-group no-border">
+                                    <input type="text" value="" class="form-control" placeholder="Pesquise...">
+                                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                    <i class="material-icons">search</i>
+                                    <div class="ripple-container"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>ID</th>
+                                <th>Título</th>
+                                <th>Preço</th>
+                                <th>Criado por</th>
+                                <th>Criado em</th>
+                                <th>Arquivado em</th>
+                            </thead>
+                            <tbody id="offers">
+                                <% @offers.each do |offer| %>
+                                    <tr>
+                                        <td><%= offer.id %></td>
+                                        <td><%= offer.title %></td>
+                                        <td><%= offer.price %></td>
+                                        <td><%= offer.created_by %></td>
+                                        <td><%= offer.created_at.strftime("%d/%m/%Y  %H:%M:%S")  %></td>
+                                        <td><%= offer.archived_at.strftime("%d/%m/%Y  %H:%M:%S")  %></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
