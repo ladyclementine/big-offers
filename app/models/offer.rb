@@ -3,8 +3,6 @@ class Offer < ApplicationRecord
     validates :price,
     numericality: { greater_than: 0, message: "A número deve ser maior que zero." }
     def self.filter(archived, admin, pag, limit)
-        reset_query_state
-
         @offers = Offer.paginate(:page => pag, :per_page => limit)
         
         unless admin.nil?
