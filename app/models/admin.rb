@@ -3,7 +3,7 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+  validates_presence_of :name, :email, :password, :permission_level       
   enum permission_level: { 'Criar': 0, 'Criar-Editar': 1 , 'Administrador': 2}
   
   def self.has_default?

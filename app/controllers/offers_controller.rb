@@ -1,13 +1,13 @@
-class OffersController < ApplicationController
+class OffersController < BaseController
   before_action :check_permission, only: [:edit, :update]
   before_action :set_offer, only: [:show, :edit, :update, :archive]
-  skip_before_action :verify_authenticity_token
-  before_action :authenticate_admin!
-
-  layout 'dashboard'
 
   def index
-    @offers = Offer.all.where.not(:archived => true).order('created_at DESC')
+    @offers = Offer.all.where.not(:archived => true).order('created_at DESC').paginate(page: params[:page], per_page: 5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
     @offer = Offer.new
   end
   

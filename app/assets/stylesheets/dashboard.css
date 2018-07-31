@@ -1,5 +1,7 @@
 /* 
+
 *= require dashboard/css/toast/toastr.css
 *= require dashboard/css/material-dashboard.css
 *= require dashboard/css/custom.css
+*= require will_paginate_infinite
 */

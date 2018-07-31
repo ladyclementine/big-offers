@@ -16,22 +16,31 @@
 //= require_tree .
 
 
-$(document).ready(function() {
+// $(window).scroll(function() {
 	
+// 	  var url;
 	
-	 toastr.options = {
-	                  "closeButton": false,
-	                  "debug": false,
-	                  "positionClass": "toast-bottom-right",
-	                  "onclick": null,
-	                  "showDuration": "300",
-	                  "hideDuration": "1000",
-	                  "timeOut": "5000",
-	                  "extendedTimeOut": "1000",
-	                  "showEasing": "swing",
-	                  "hideEasing": "linear",
-	                  "showMethod": "fadeIn",
-	                  "hideMethod": "fadeOut"
-	              }
+// 	  // Checks if products are currently being loaded
+// 	  if (window.pagination_loading) {
+// 		return;
+// 	  }
 	
-});
+// 	  // Grabs the URL from the "next page" button 
+// 	  url = $('.pagination .next_page').attr('href')
+	
+// 	  // Chckes if you're n height from the bottom
+// 	  if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+	
+// 		// Variable to know that you are currently loading products
+// 		window.pagination_loading = true;
+	
+// 		// Text while loading
+// 		$('.pagination').text('');
+	
+// 		// Run the script
+// 		return $.getScript(url).always(function() {
+// 		  return window.pagination_loading = false;
+// 		});
+	
+// 	  }
+// 	});

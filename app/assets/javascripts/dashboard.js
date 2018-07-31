@@ -9,3 +9,4 @@
 //= require dashboard/js/plugins/perfect-scrollbar.jquery.min.js
 //= require dashboard/js/plugins/chartist.min.js
 //= require dashboard/js/material-dashboard.min.js
+//= require will_paginate_infinite

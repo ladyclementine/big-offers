@@ -32,4 +32,6 @@
 .padding{
     padding: 20px 20px 0;
 }
-    
+.pagination{
+    display: none !important;
+}

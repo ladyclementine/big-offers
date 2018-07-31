@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    get 'offers/index' => 'offers/offers#index'
+  end
+
   devise_for :admins , controllers: {
     sessions: 'admins/sessions'
   },
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
       #arquivar oferta
       put '/oferta/:id/arquivar' => 'offers#archive', :as => 'archive_offer'
       
-      #verlista de ofertas arquivadas
+      #ver lista de ofertas arquivadas
       get '/ofertas/arquivadas' => 'offers#archived_list', as: :archived_list
 
       resources :admins, only: [:destroy, :update, :edit, :delete]
@@ -30,11 +34,10 @@ Rails.application.routes.draw do
       get '/admin/cadastro', to: 'admins#new'
       post '/admin/cadastro' => 'admins#create', as: :new_admin
       
-
       root  'offers#index',  as: :authenticated_admin_root
 
       get 'admins' => 'admins#index'
     end
   end
-  root to: 'landing_page#index'
+  root  'offers#index',  as: :unauthenticated_admin_root
 end

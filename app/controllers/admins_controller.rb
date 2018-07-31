@@ -18,7 +18,7 @@ class AdminsController <  ApplicationController
         if @admin.save
             redirect_to admins_path, notice: "Admin criado com sucesso."
         else
-            redirect_to new_admin_path, alert: "Falha ao cadastrar novo admin."
+            redirect_to new_admin_path, notice: 'Erro' 
         end
     end
 

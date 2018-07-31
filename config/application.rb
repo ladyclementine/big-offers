@@ -14,7 +14,6 @@ module BigOffers
     config.time_zone = 'America/Fortaleza'
     config.i18n.default_locale = :'pt-BR'
     config.assets.initialize_on_precompile = false
-    require 'carrierwave'
-    require 'carrierwave/orm/activerecord'
+    config.eager_load = true
   end
 end

@@ -8,6 +8,13 @@
               </div>
               <div class="card-body">
                   <%= form_for @admins, url: {action: "create"} do |f| %>
+                  <% if @admins.errors.any? %>
+                    <ul>
+                      <% @post.errors.full_messagens.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  <% end %>
                   <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">

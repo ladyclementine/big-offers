@@ -1,7 +1,7 @@
 <div class="margin-top-5">
     <div class="container-fluid">
-        <div class="row justify-center">
-            <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-primary">
                     <h4 class="card-title">Ofertas(<%= @offers.count%>)</h4>
@@ -62,13 +62,29 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                    <div class="card card-profile">
+                      <!-- <div class="card-avatar">
+                        <a href="#pablo">
+                          <img class="img" src="../assets/img/faces/marc.jpg" />
+                        </a>
+                      </div> -->
+                      <div class="card-body">
+                        <h6 class="card-category text-gray">Administrador</h6>
+                        <h4 class="card-title"><%= current_admin.email %></h4>
+                        <p class="card-description">
+                            Permissão: <%= current_admin.permission_level %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
-    </div>
-</div>
 <div class="container-fluid">
     <div class="row justify-start">
         <%= link_to(archived_list_path, class:"nav-link active") do %>
-            <i class="material-icons">list</i> Ver ofertas arquivada
+            <i class="material-icons">archive</i> Ver ofertas arquivadas
             <div class="ripple-container"></div>
         <% end %>
     </div>
@@ -77,17 +93,6 @@
     <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="card">
-                    <!-- <div class="row padding justify-end">
-                        <div class="col-lg-4 col-md-4">
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Pesquise...">
-                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="card-body table-responsive">
                         <table class="table table-hover">
                         <thead class="text-warning">
@@ -100,6 +105,7 @@
                         <tbody id="offers">
                             <%= render @offers%>
                         </tbody>
+                        <%= will_paginate  @offers, renderer: WillPaginateInfinite::InfinitePagination %>
                         </table>
                     </div>
                 </div>
