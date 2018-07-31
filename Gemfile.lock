@@ -44,7 +44,6 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
-    carrierwave (1.2.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -69,7 +68,6 @@ GEM
     ffi (1.9.23)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.41.0)
       fog-aliyun (>= 0.1.0)
       fog-atmos
       fog-aws (>= 0.6.0)
@@ -241,7 +239,6 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
