@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :api do
-    get 'offers/index' => 'offers/offers#index'
+    get 'offers' => 'offers/offers#index'
   end
 
   devise_for :admins , controllers: {
