@@ -35,3 +35,8 @@
 .pagination{
     display: none !important;
 }
+@media (max-width: 991px){
+    .margin-top-5{
+        margin-top: 20%;
+    }
+}

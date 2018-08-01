@@ -63,6 +63,8 @@ GEM
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+      actionpack (>= 4.1)
+      activesupport (>= 4.1)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -195,4 +197,4 @@ DEPENDENCIES
   will_paginate_infinite
 
 BUNDLED WITH
-   1.16.1
+   1.16.3

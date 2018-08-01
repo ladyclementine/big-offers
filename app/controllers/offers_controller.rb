@@ -15,9 +15,6 @@ class OffersController < BaseController
     @offers = Offer.all.where(:archived => true)
   end
 
-  def show
-  end
-
   def new
   end
 
